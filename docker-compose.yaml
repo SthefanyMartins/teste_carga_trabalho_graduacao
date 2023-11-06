@@ -1,0 +1,10 @@
+version: '3'
+services:
+  artillery:
+    image: artilleryio/artillery:latest
+    volumes:
+      - ./script_teste.yaml:/testes/script_teste.yaml
+    command: ["run", "/testes/script_teste.yaml"]
+
+networks:
+  minha_rede:
