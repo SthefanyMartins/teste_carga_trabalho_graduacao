@@ -3,8 +3,8 @@ services:
   artillery:
     image: artilleryio/artillery:latest
     volumes:
-      - ./script_teste.yaml:/testes/script_teste.yaml
-    command: ["run", "/testes/script_teste.yaml"]
+      - ./script_teste_no_cached.yaml:/testes/script_teste_no_cached.yaml
+    command: ["run", "/testes/script_teste_no_cached.yaml"]
 
 networks:
   minha_rede:
