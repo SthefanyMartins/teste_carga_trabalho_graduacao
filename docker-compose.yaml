@@ -3,8 +3,18 @@ services:
   artillery:
     image: artilleryio/artillery:latest
     volumes:
-      - ./script_teste_no_cached.yaml:/testes/script_teste_no_cached.yaml
-    command: ["run", "/testes/script_teste_no_cached.yaml"]
+      - ./scenarios/${TEST_SCENARIO}.yaml:/tests/${TEST_SCENARIO}.yaml
+      - "./test_results/:/tests/results/"
+    command:
+      [
+        "run",
+        "/tests/${TEST_SCENARIO}.yaml",
+        "-o",
+        "/tests/results/${TEST_SCENARIO}.json"
+      ]
+    networks:
+      - ${NETWORK}
 
 networks:
-  minha_rede:
+  api_trabalho_graduacao_api-tg:
+    external: true
