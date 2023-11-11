@@ -11,5 +11,6 @@ test_scenarios_list=(
 for file in "${test_scenarios_list[@]}"; do
     echo "Processing test file ${file}"
     TEST_SCENARIO="${file}" NETWORK="${network}" docker-compose up
+    curl -X POST http://localhost:8080/redis/flush_cache
     sleep 180
 done
