@@ -3,8 +3,8 @@ config:
   # It's designed to be highly scalable
   target: http://api-tg:80
   phases:
-    - duration: 10
-      arrivalRate: 10
+    - duration: 600
+      arrivalRate: 100
       name: Warm up phase
     # - duration: 180
     #   arrivalRate: 30
@@ -16,10 +16,10 @@ config:
     #   name: Spike phase
   # Load & configure a couple of useful plugins
   # https://docs.art/reference/extensions
-  # plugins:
+  plugins:
   #   ensure: {}
   #   apdex: {}
-  #   metrics-by-endpoint: {}
+    metrics-by-endpoint: {}
   # apdex:
   #   threshold: 100
   # ensure:
@@ -27,18 +27,18 @@ config:
   #       - http.response_time.p99: 100
   #       - http.response_time.p95: 75
 scenarios:
-  - flow:
-      - get:
-          url: "/nocached/states_count_by_region/"
-      - get:
-          url: "/nocached/restricted_services_with_schools_by_municipalities/?page=2"
-      - get:
-          url: "/nocached/private_high_schools_by_region/?page=3"
-      - get:
-          url: "/nocached/average_number_of_schools_per_city_in_region/"
-      - get:
-          url: "/nocached/city_with_the_largest_number_of_higher_education_school/"
-      - get:
-          url: "/nocached/state_with_concentration_of_private_elementary_schools/"
-      - get:
-          url: "/nocached/number_of_higher_education_schools_in_each_city/?page=1"
+    - flow:
+        - get:
+            url: "/nocached/states_count_by_region/"
+        - get:
+            url: "/nocached/restricted_services_with_schools_by_municipalities/?page=2"
+        - get:
+            url: "/nocached/private_high_schools_by_region/?page=3"
+        - get:
+            url: "/nocached/average_number_of_schools_per_city_in_region/"
+        - get:
+            url: "/nocached/city_with_the_largest_number_of_higher_education_school/"
+        - get:
+            url: "/nocached/state_with_concentration_of_private_elementary_schools/"
+        - get:
+            url: "/nocached/number_of_higher_education_schools_in_each_city/?page=1"

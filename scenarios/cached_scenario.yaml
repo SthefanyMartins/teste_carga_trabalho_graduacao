@@ -3,8 +3,8 @@ config:
   # It's designed to be highly scalable
   target: http://api-tg:80
   phases:
-    - duration: 10
-      arrivalRate: 10
+    - duration: 600
+      arrivalRate: 100
       name: Warm up phase
     # - duration: 180
     #   arrivalRate: 30
@@ -16,10 +16,10 @@ config:
     #   name: Spike phase
   # Load & configure a couple of useful plugins
   # https://docs.art/reference/extensions
-  # plugins:
+  plugins:
   #   ensure: {}
   #   apdex: {}
-  #   metrics-by-endpoint: {}
+    metrics-by-endpoint: {}
   # apdex:
   #   threshold: 100
   # ensure:

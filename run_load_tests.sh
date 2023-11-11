@@ -11,4 +11,5 @@ test_scenarios_list=(
 for file in "${test_scenarios_list[@]}"; do
     echo "Processing test file ${file}"
     TEST_SCENARIO="${file}" NETWORK="${network}" docker-compose up
+    sleep 180
 done

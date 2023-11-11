@@ -16,5 +16,5 @@ services:
       - ${NETWORK}
 
 networks:
-  api_trabalho_graduacao_api-tg:
+  tg_api_api-tg:
     external: true
